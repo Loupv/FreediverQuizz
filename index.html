@@ -767,7 +767,10 @@
   }
   .coffee-btn:hover { opacity: 1; background: rgba(84,225,201,0.1); border-color: rgba(84,225,201,0.35) !important; }
   .coffee-btn .shell { font-size: 13px; }
-  .version { opacity: 0.45; font-size: 10px; }
+  .version { opacity: 0.55; font-size: 10px; }
+  .version a { color: #54e1c9; text-decoration: none; border-bottom: 1px dashed rgba(84,225,201,0.4); }
+  .version a:hover { border-bottom-color: #54e1c9; }
+  #sources-note { display: inline-block; max-width: 460px; line-height: 1.5; margin-top: 2px; }
 
   /* Intro header illustration */
   .intro-header {
@@ -991,7 +994,7 @@
     </div>
     <div class="version" style="text-align:center; margin-top:10px; line-height:1.6;">
       <span id="privacy-note">Analyses anonymes via Google Analytics sans cookie · IP anonymisée</span><br>
-      v3.0 · AIDA1–4 Manuals (2019–2021)
+      <span id="sources-note">Pour apprendre vraiment l'apnée : prends un cours certifié avec un instructeur (<a href="https://www.aidainternational.org/" target="_blank" rel="noopener">AIDA International</a> ou autre fédération).</span>
     </div>
   </footer>
 </div>
@@ -1105,6 +1108,7 @@ const I18N = {
     coffeeBtn: "Offre-moi un bulot",
     coffeeTitle: "Soutiens le développement de l'app",
     privacyNote: "Analyses anonymes via Google Analytics sans cookie · IP anonymisée",
+    sourcesNote: 'Pour apprendre vraiment l\'apnée : prends un cours certifié avec un instructeur (<a href="https://www.aidainternational.org/" target="_blank" rel="noopener">AIDA International</a> ou autre fédération).',
     finishQuiz: "Terminer",
     finishQuizConfirm: "Terminer maintenant ? Tu verras ton score sur les questions répondues.",
     resumeTitle: "Quiz en cours",
@@ -1172,6 +1176,7 @@ const I18N = {
     coffeeBtn: "Buy me a scallop",
     coffeeTitle: "Support the app's development",
     privacyNote: "Anonymous analytics via cookieless Google Analytics · IP anonymized",
+    sourcesNote: 'To actually learn freediving: take a certified course with an instructor (<a href="https://www.aidainternational.org/" target="_blank" rel="noopener">AIDA International</a> or another federation).',
     finishQuiz: "Finish",
     finishQuizConfirm: "Finish now? You'll see your score on answered questions.",
     resumeTitle: "Quiz in progress",
@@ -1239,6 +1244,7 @@ const I18N = {
     coffeeBtn: "Invítame un bulot",
     coffeeTitle: "Apoya el desarrollo de la app",
     privacyNote: "Estadísticas anónimas vía Google Analytics sin cookies · IP anonimizada",
+    sourcesNote: 'Para aprender apnea de verdad: haz un curso certificado con un instructor (<a href="https://www.aidainternational.org/" target="_blank" rel="noopener">AIDA International</a> u otra federación).',
     finishQuiz: "Terminar",
     finishQuizConfirm: "¿Terminar ahora? Verás tu puntuación sobre las preguntas respondidas.",
     resumeTitle: "Cuestionario en curso",
@@ -1306,6 +1312,7 @@ const I18N = {
     coffeeBtn: "Spendier mir einen Bulot",
     coffeeTitle: "Unterstütze die Entwicklung der App",
     privacyNote: "Anonyme Statistiken via Google Analytics ohne Cookies · IP anonymisiert",
+    sourcesNote: 'Um Apnoetauchen wirklich zu lernen: mache einen zertifizierten Kurs mit einem Instruktor (<a href="https://www.aidainternational.org/" target="_blank" rel="noopener">AIDA International</a> oder ein anderer Verband).',
     finishQuiz: "Beenden",
     finishQuizConfirm: "Jetzt beenden? Du siehst dein Ergebnis zu den beantworteten Fragen.",
     resumeTitle: "Quiz läuft",
@@ -2576,10 +2583,13 @@ function updateFooterI18n() {
   const btn = $('#coffee-btn');
   const priv = $('#privacy-note');
   const gloss = $('#glossary-link');
+  const sources = $('#sources-note');
   if (txt) txt.textContent = I18N[state.lang].coffeeBtn;
   if (btn) btn.title = I18N[state.lang].coffeeTitle;
   if (priv) priv.textContent = I18N[state.lang].privacyNote;
   if (gloss) gloss.textContent = I18N[state.lang].glossary;
+  // sources note contains a link tag → use innerHTML
+  if (sources) sources.innerHTML = I18N[state.lang].sourcesNote;
 }
 
 function toggleLevel(lvl) {
