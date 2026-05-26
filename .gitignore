@@ -1,0 +1,8 @@
+.DS_Store
+*.pdf
+.vscode/
+.idea/
+node_modules/
+# Translation build artefacts (merged into index.html, regeneratable)
+trans-*.json
+merge-translations.js

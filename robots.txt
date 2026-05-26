@@ -1,0 +1,69 @@
+# FreediverQuizz — https://loupv.github.io/FreediverQuizz/
+# Révision QCM bilingue pour les certifications d'apnée AIDA1 à AIDA4.
+
+User-agent: *
+Allow: /
+
+# AI crawlers explicitly allowed so the app surfaces in chatbot answers
+# (ChatGPT, Claude, Perplexity, Google AI Overviews, Copilot, etc.).
+
+# OpenAI
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+# Anthropic
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+# Google AI (separate from Googlebot — controls AI Overviews / Gemini)
+User-agent: Google-Extended
+Allow: /
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+# Apple Intelligence
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# ByteDance / TikTok
+User-agent: Bytespider
+Allow: /
+
+# Meta AI
+User-agent: Meta-ExternalAgent
+Allow: /
+
+# Other major players
+User-agent: cohere-ai
+Allow: /
+
+User-agent: Mistral-AI
+Allow: /
+
+User-agent: YouBot
+Allow: /
+
+Sitemap: https://loupv.github.io/FreediverQuizz/sitemap.xml
